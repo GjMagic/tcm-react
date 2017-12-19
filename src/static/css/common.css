@@ -1,0 +1,90 @@
+.white-rt{
+	display:inline-block;
+	background:url(../images/rt-icon.png) no-repeat;
+	background-size:contain;
+	width:0.186667rem;
+	height:0.333333rem;
+}
+.yellow-rt{
+	display:inline-block;
+	background:url(../images/rt-icon1.png) no-repeat;
+	background-size:contain;
+	width:0.346667rem;
+	height:0.346667rem;
+}
+.news-icon{
+	display:inline-block;
+	background:url(../images/news-icon.png) no-repeat;
+	background-size:contain;
+	width:0.533333rem;
+	height:0.533333rem;
+}
+.white-lt{
+	display:inline-block;
+	width:0.186667rem;
+	height:0.346667rem;
+	background:url(../images/lt-icon.png) no-repeat;
+	background-size:contain;
+}
+.yellow-bt{
+	display:inline-block;
+	background:url(../images/bt-icon.png) no-repeat;
+	background-size:contain;
+	width:0.24rem;
+	height:0.133333rem;
+}
+.close-icon{
+	display:inline-block;
+	background:url(../images/close-icon.png) no-repeat;
+	background-size:contain;
+	width:0.266667rem;
+	height:0.266667rem;
+}
+
+/*按钮*/
+.close-bt{
+	width:5.333333rem;
+	height:1.173333rem;
+	line-height:1.173333rem;
+	text-align:center;
+	margin:1.066667rem auto;
+	font-size:0.453333rem;
+	color:#fff;
+	background:#d5aa5c;
+	border-radius:0.586667rem;
+	border:none;
+	display:block;
+}
+
+/*头部*/
+.user-tit{
+	height:1.173333rem;
+	background:#27282f;
+	line-height:1.173333rem;
+	font-size:0.453333rem;
+	text-align:center;
+	font-weight:bold;
+	color:#fff;
+	position:relative;
+}
+.user-tit .white-lt{
+	position:absolute;
+	left:0.48rem;
+	top:0.4rem;
+}
+/*底部按钮*/
+.remits-fixed {
+    background: #d5aa5c;
+    bottom: 0;
+    color: #fff;
+    font-size: 0.453333rem;
+    height: 1.30667rem;
+    left: 0;
+    line-height: 1.30667rem;
+    position: fixed;
+    text-align: center;
+    width: 100%;
+}
+.remits-fixed.active{
+	background:#cccccc;
+}

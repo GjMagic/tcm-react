@@ -1,6 +1,6 @@
 This project was bootstrapped with [Create React App](https://github.com/facebookincubator/create-react-app).
 
-## Updating to New Releases
+## tcm-React
 
 Create React App is divided into two packages:
 
