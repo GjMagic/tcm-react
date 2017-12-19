@@ -3,6 +3,9 @@ import axios from 'axios';
 
 import HomeHeader from '../../components/HomeHeader/HomeHeader';
 import HomeBrand from '../../components/HomeBrand/HomeBrand';
+import CarSource from '../../components/CarSource/CarSource';
+import CarSearch from '../../components/CarSearch/CarSearch';
+import HomeFooter from '../../components/HomeFooter/HomeFooter';
 import { Carousel } from 'antd-mobile';
 
 import './css/style.css';
@@ -18,7 +21,7 @@ class Home extends Component {
     }
   }
   
-  componentDidMount() {
+  componentWillMount() {
     localStorage.setItem('token', 'ad901cee763571e6085b657648589bb9') // 设置token
     axios
       .get(
@@ -48,7 +51,7 @@ class Home extends Component {
 
   render() {
 
-    let { circular, brands } = this.state;
+    let { circular, brands, series } = this.state;
 
     return (
       <div>
@@ -90,114 +93,11 @@ class Home extends Component {
         
         <HomeBrand brands={brands} />
 
-        <section className="index-car-source">
-          <p className="index-car-title">本地车源</p>
-          <ul className="index-car-con">
-            <li>
-              <img src={require('./images/pic-1.jpg')} alt="" />
-              <p className="index-car-name">上海大众-途昂</p>
-              <p className="index-car-price">
-                <span>9.99</span>万起</p>
-              <p className="index-car-count">共
-                <i>1</i>个车型在售</p>
-              <p className="index-car-sale">最高下降
-                <strong>2.8万</strong>
-              </p>
-            </li>
-            <li>
-              <img src={require('./images/pic-1.jpg')} alt="" />
-              <p className="index-car-name">上海大众-途昂</p>
-              <p className="index-car-price">
-                <span>9.99</span>万起</p>
-              <p className="index-car-count">共
-                <i>1</i>个车型在售</p>
-              <p className="index-car-sale">最高下降
-                <strong>2.8万</strong>
-              </p>
-            </li>
-            <li>
-              <img src={require('./images/pic-1.jpg')} alt="" />
-              <p className="index-car-name">上海大众-途昂</p>
-              <p className="index-car-price">
-                <span>9.99</span>万起</p>
-              <p className="index-car-count">共
-                <i>1</i>个车型在售</p>
-              <p className="index-car-sale">最高下降
-                <strong>2.8万</strong>
-              </p>
-            </li>
-            <li>
-              <img src={require('./images/pic-1.jpg')} alt="" />
-              <p className="index-car-name">上海大众-途昂</p>
-              <p className="index-car-price">
-                <span>9.99</span>万起</p>
-              <p className="index-car-count">共
-                <i>1</i>个车型在售</p>
-              <p className="index-car-sale">最高下降
-                <strong>2.8万</strong>
-              </p>
-            </li>
-            <li>
-              <img src={require('./images/pic-1.jpg')} alt="" />
-              <p className="index-car-name">上海大众-途昂</p>
-              <p className="index-car-price">
-                <span>9.99</span>万起</p>
-              <p className="index-car-count">共
-                <i>1</i>个车型在售</p>
-              <p className="index-car-sale">最高下降
-                <strong>2.8万</strong>
-              </p>
-            </li>
-            <li>
-              <img src={require('./images/pic-1.jpg')} alt="" />
-              <p className="index-car-name">上海大众-途昂</p>
-              <p className="index-car-price">
-                <span>9.99</span>万起</p>
-              <p className="index-car-count">共
-                <i>1</i>个车型在售</p>
-              <p className="index-car-sale">最高下降
-                <strong>2.8万</strong>
-              </p>
-            </li>
-          </ul>
-          <p className="index-more-brand">查看更多
-            <i className="yellow-bt"></i>
-          </p>
-        </section>
+        <CarSource series={series} />
        
-        <section className="index-search">
-          <div className="index-search-in">
-            <p className="index-search-title">急需要什么车型？告诉我</p>
-            <div className="index-search-condition">
-              <div className="index-serach-type">
-                <label>选择车型</label>
-                <p></p>
-                <i className="white-rt"></i>
-              </div>
-              <div className="index-search-price">
-                <label>期望价格：</label>
-                <input type="text" />
-                <span>万元</span>
-              </div>
-            </div>
-            <input type="submit" name="提交" value="提交" />
-          </div>
-        </section>
+        <CarSearch />
         
-        <p className="footer-bt"></p>
-        
-        <footer className="index-fooer">
-          <ul className="clearfix">
-            <li className="index-order-car active">
-              <i></i>
-              <span>订车</span>
-            </li>
-            <li className="index-my">
-              <i></i>
-              <span>我的</span>
-            </li>
-          </ul>
-        </footer>
+        <HomeFooter />
       </div>
     );
   }

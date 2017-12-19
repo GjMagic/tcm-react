@@ -81,7 +81,8 @@
 }
 
 .index-brand-info {
-  height: 1.8266rem;
+  height: 2.1rem;
+  overflow: hidden;
 }
 
 .index-brand-info li {
