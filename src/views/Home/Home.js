@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import axios from 'axios';
 
 import HomeHeader from '../../components/HomeHeader/HomeHeader';
+import HomeBrand from '../../components/HomeBrand/HomeBrand';
 import { Carousel } from 'antd-mobile';
 
 import './css/style.css';
@@ -10,7 +11,10 @@ class Home extends Component {
   constructor(props) {
     super(props)
     this.state = {
-      imgUrl: ''
+      circular: [], // 轮播
+      imgHeight: 342,
+      brands: [],
+      series: []
     }
   }
   
@@ -27,9 +31,14 @@ class Home extends Component {
         }}
       )
       .then(res => {
-        console.log(res)
-        if( res.status === 200 && res.code === 200) {
-          
+        console.log(res.data)
+        let { circular, brands, series } = res.data.data;
+        if( res.status === 200 && res.data.code === 200) {
+          this.setState({
+            circular,
+            brands,
+            series
+          })
         }
       })
       .catch(err => {
@@ -38,6 +47,9 @@ class Home extends Component {
   }
 
   render() {
+
+    let { circular, brands } = this.state;
+
     return (
       <div>
         <HomeHeader />
@@ -60,55 +72,24 @@ class Home extends Component {
             borderRadius: '0.0666rem',
           }}
         >
-          <img src={require('./images/banner.jpg')} alt="banner" />
-          <img src={require('./images/banner.jpg')} alt="banner" />
-          <img src={require('./images/banner.jpg')} alt="banner" />
+          { circular.map( (item, i) => {
+            return (
+              <img
+                key={i}
+                src={item.imgUrl} 
+                alt=""
+                onLoad={() => {
+                  // fire window resize event to change height
+                  window.dispatchEvent(new Event('resize'));
+                  this.setState({ imgHeight: 'auto' });
+                }}
+              />
+            )
+          } ) }
         </Carousel>
-        {/* <section className="index-slider">
-          <ul>
-            <li>
-              <img src={require('./images/banner.jpg')} alt="banner" />
-            </li>
-          </ul>
-          <ul className="index-icon">
-            <li></li>
-            <li className="active"></li>
-            <li></li>
-            <li></li>
-            <li></li>
-          </ul>
-        </section> */}
         
-        <section className="index-brand">
-          <div className="index-brand-in">
-            <ul className="index-brand-info clearfix">
-              <li>
-                <img src={require('./images/logo.png')} alt="" />
-                <span>大众</span>
-              </li>
-              <li>
-                <img src={require('./images/logo.png')} alt="" />
-                <span>大众</span>
-              </li>
-              <li>
-                <img src={require('./images/logo.png')} alt="" />
-                <span>大众</span>
-              </li>
-              <li>
-                <img src={require('./images/logo.png')} alt="" />
-                <span>大众</span>
-              </li>
-              <li>
-                <img src={require('./images/logo.png')} alt="" />
-                <span>大众</span>
-              </li>
-            </ul>
-            <p className="index-more-brand">更多品牌
-              <i className="yellow-bt"></i>
-            </p>
-          </div>
-        </section>
-        
+        <HomeBrand brands={brands} />
+
         <section className="index-car-source">
           <p className="index-car-title">本地车源</p>
           <ul className="index-car-con">

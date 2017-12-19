@@ -93,15 +93,15 @@
 
 .index-brand-info li img {
   display: block;
-  width: .5333rem;
-  height: .5333rem;
-  margin: .666rem auto 0;
-  margin-bottom: .1333rem;
+  width: 1.067rem;
+  height: 1.067rem;
+  margin: .533rem auto 0;
+  overflow: hidden;
 }
 
 .index-brand-info li span {
   color: #2c2c2c;
-  font-size: 0.3733rem;
+  font-size: 0.3rem;
 }
 
 .index-more-brand {
