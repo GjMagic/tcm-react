@@ -1,0 +1,7 @@
+// 解决experimentalDecorators 报警问题
+{
+  "compilerOptions": {
+    "experimentalDecorators": true,
+    "allowJs": true
+  }
+}

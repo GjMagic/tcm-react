@@ -8,16 +8,18 @@ class HomeBrand extends Component {
     super(props);
     this.moreBrands = this.moreBrands.bind(this);
     this.state = {
-      moreBrandsText: '更多品牌'
+      moreBrandsText: '更多品牌',
+      moreBrandsBool: false,
+      brandInfoClass: 'index-brand-info clearfix',
+      moreBrandClass: 'index-more-brand'
     }
   }
   
   // 点击更多品牌
   moreBrands(ev) {
-    /* ev.target.classList.add('brand-collect');
     this.setState({
-      moreBrandsText: '收起'
-    }) */
+      moreBrandsBool: !this.state.moreBrandsBool
+    })
   }
 
   render() {
@@ -26,18 +28,24 @@ class HomeBrand extends Component {
 
     let { brands } = this.props;
 
-    let { moreBrandsText } = this.state;
+    let { moreBrandsText, moreBrandsBool, brandInfoClass, moreBrandClass } = this.state;
+
+    moreBrandsText = moreBrandsBool ? "收起" : "更多品牌";
+
+    brandInfoClass = moreBrandsBool ? "clearfix" : "clearfix index-brand-info";
+
+    moreBrandClass = moreBrandsBool ? "index-more-brand brand-collect" : "index-more-brand";
 
     return (
       <section className="index-brand">
         <div className="index-brand-in">
-          <ul className="index-brand-info clearfix">
+          <ul className={brandInfoClass}>
             { brands.map((item, i) => {
               return (<BrandItem key={i} brand={item} />)
             }) }
           </ul>
           <p 
-            className="index-more-brand"
+            className={moreBrandClass}
             onTouchStart={moreBrands}
           >
             {moreBrandsText}

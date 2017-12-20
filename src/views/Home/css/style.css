@@ -85,14 +85,14 @@
   overflow: hidden;
 }
 
-.index-brand-info li {
+.index-brand-in li {
   float: left;
   width: 20%;
-  margin-bottom: 0.1333rem;
+  overflow: hidden;
   text-align: center;
 }
 
-.index-brand-info li img {
+.index-brand-in li img {
   display: block;
   width: 1.067rem;
   height: 1.067rem;
@@ -100,7 +100,7 @@
   overflow: hidden;
 }
 
-.index-brand-info li span {
+.index-brand-in li span {
   color: #2c2c2c;
   font-size: 0.3rem;
 }
@@ -108,12 +108,19 @@
 .index-more-brand {
   margin-top: .8rem;
   text-align: center;
+  color: #d5aa5c;
+  font-size: .373rem;
 }
 
 .index-more-brand i {
   margin-left: .1333rem;
+  position: relative;
+  top: -.04rem;
 }
 
+.brand-collect i {
+  transform: rotateX(180deg);
+}
 
 /*首页本地车源*/
 
